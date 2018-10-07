@@ -1,0 +1,3 @@
+rootProject.name = 'TechObs'
+
+include ':app'
