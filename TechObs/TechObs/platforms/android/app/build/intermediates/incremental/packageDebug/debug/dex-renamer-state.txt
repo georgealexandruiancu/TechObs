@@ -1,0 +1,4 @@
+#Mon Oct 08 22:55:18 EEST 2018
+base.0=/Users/alexiancu/Documents/work/TechObs/TechObs/TechObs/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+file.0=/Users/alexiancu/Documents/work/TechObs/TechObs/TechObs/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex

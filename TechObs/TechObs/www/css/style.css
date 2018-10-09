@@ -1,0 +1,696 @@
+@font-face {
+    font-family: Bazar;
+    src: url("Bazar.ttf");
+}
+html,body{
+    font-family: arial;
+    margin: 0;
+    padding: 0;
+}
+.intro{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.intro .logo-text{
+    font-family: Bazar;
+    font-size: 3rem;
+    color: white;
+    margin-left: 10px;
+}
+.button-intro{
+    position: fixed;
+    bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+}
+.introBtn{
+    background: #e73cd3;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 10px 10px 10px 10px;
+}
+.fancyNav{
+    position: fixed;
+    height: 100%;
+    width: 278px;
+    left: 0;
+    top: 0;
+    background: black;
+    overflow-x: hidden;
+    overflow-y: visible;
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.fancyNav .logo-brand{
+    font-family: Bazar;
+    font-size: 2rem;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: white;
+}
+.toggleButton{
+    position: relative;
+
+    margin-bottom: 50px;
+}
+#box{
+  background: transparent;
+  width:60px;
+  height:60px;
+  margin-bottom: 50px;
+  position: absolute;
+
+}
+ul{
+  padding:15px;
+}
+li.linesBtn{
+  list-style:none;
+  width:100%;
+  height:6px;
+  background: white;
+  margin-bottom:6px;
+  position:relative;
+  transition: all 0.2s;
+}
+li.linesBtn:first-child{
+  -webkit-transform:rotate(0deg);
+  transform:rotate(0deg);
+  top:0px;
+}
+li.linesBtn:last-child{
+  -webkit-transform:rotate(0deg);
+  transform:rotate(0deg);
+  top:0px;
+}
+.open{
+    transition: all 0.2s;
+}
+.open li.linesBtn{
+  opacity:0;  
+}
+.open li.linesBtn:first-child{
+  -webkit-transform:rotate(45deg);
+  transform:rotate(45deg);
+  top:12px;
+  opacity:1;
+}
+.open li.linesBtn:last-child{
+  -webkit-transform:rotate(-45deg);
+  transform:rotate(-45deg);
+  top:-12px;
+  opacity:1;
+}
+.tracks-holder{
+    color: white;
+    font-size: .8rem;
+    overflow: visible;
+    position: relative;
+}
+.tracks-holder li{
+    list-style:none;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    transition: all 0.3s;
+}
+.tracks-holder li .playBtn{
+    display: none;
+    padding-right: 10px;
+}
+.tracks-holder .trackName{
+    display: inline;
+}
+.tracks-holder .artistName{
+    display: inline;
+    opacity: 0.5;
+}
+.actives{
+    transition: all 0.2s;
+}
+li.actives{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
+}
+li.actives .playBtn{
+    display: inline;
+}
+.tracks-holder li.active{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
+}
+.tracks-holder li.active .playBtn{
+    display: inline;
+}
+/* }
+.tracks-holder li:hover{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
+
+}
+.tracks-holder li:hover .playBtn{
+    display: inline;
+}   
+.tracks-holder li:active{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
+
+}
+.tracks-holder li:active .playBtn{
+    display: inline;
+} 
+.tracks-holder li:focus{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
+
+}
+.tracks-holder li:focus .playBtn{
+    display: inline;
+}  */
+.miniFancyNav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    background: black;
+    z-index: 0;
+    color: white;
+}
+.miniFancyNav .playMiniBtn{
+    position: absolute;
+    top: 125px;
+    font-size: 25px;
+    left: 15px;
+    transition: all 0.3s;
+
+}
+.miniFancyNav .pausedMiniBtn{
+    position: absolute;
+    top: 225px;
+    font-size: 25px;
+    left: 15px;
+    transition: all 0.3s;
+
+}
+.miniFancyNav .nextMiniBtn{
+    position: absolute;
+    top: 325px;
+    font-size: 25px;
+    left: 15px;
+    transition: all 0.3s;
+}
+.miniFancyNav .mutedMiniBtn{
+    position: absolute;
+    top: 425px;
+    font-size: 25px;
+    left: 21px;
+    transition: all 0.3s;
+}
+.miniFancyNav .shuffleMiniBtn{
+    position: absolute;
+    top: 525px;
+    font-size: 25px;
+    left: 15px;
+    transition: all 0.2s;
+}
+.playMiniBtn:hover{
+    color: #e73cd3;
+    cursor: pointer;
+}
+.pausedMiniBtn:hover{
+    color: #e73cd3;
+    cursor: pointer;
+
+}
+.nextMiniBtn:hover{
+    color: #e73cd3;
+    cursor: pointer;
+}
+.mutedMiniBtn:hover{
+    color: #e73cd3;
+    cursor: pointer;
+}
+.audio-player{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: black;
+    color: white;
+}
+.audio-player .content{
+    position: relative;
+    padding-top: 5px;
+}
+.audio-player .actions .playMaxBtn{
+    display: inline;
+    font-size: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+}
+.audio-player .actions .pausedMaxBtn{
+    display: inline;
+    font-size: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+
+}
+.audio-player .actions .nextMaxBtn{
+    display: inline;
+    font-size: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+
+}
+.audio-player .actions .mutedMaxBtn{
+    display: inline;
+    font-size: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+
+}
+
+.content .actions{
+    padding-left: 300px;
+    display: inline;
+}
+.songInfo{
+    color: white;
+    display: inline;
+    font-size: 17px; 
+    position: relative;
+    top: -5px;
+  
+    left: 40%;
+    transform: translateX(-50%);
+}
+.songInfo .trackName{
+    display: inline;
+}
+.songInfo .artistName{
+    display: inline;
+    opacity: 0.6;
+}
+audio{
+ display: none;
+}
+.sliderVolume{
+    color: white;
+    display: inline;
+    font-size: 17px; 
+    position: relative;
+    top: -5px;
+    padding-left: 50px;
+}
+.circleFull{
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    /* background: linear-gradient(226deg, #692978, #472978, #2b2978, #294a78, #2b2978, #5f2978, #2d1e34, #050505, #050505);
+background-size: 1800% 1800%;
+
+-webkit-animation: AnimationName 10s ease infinite;
+-moz-animation: AnimationName 10s ease infinite;
+animation: AnimationName 10s ease infinite; */
+    border-radius: 50%;
+    filter: blur(10px)
+}
+.circleBorder{
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 15px solid white;
+    border-radius: 50%;
+    animation: pulsation 2s infinite ease-out;
+}
+@keyframes pulsation{
+    0%{
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+    25%{
+        width: 600px;
+        height: 600px;
+        opacity: 0.5;
+        filter: blur(5px);
+
+    }
+    50%{
+        width: 650px;
+        height: 650px;
+        border: 20px solid white;
+        opacity: 1;
+        filter: blur(10px);
+    }
+    75%{
+        width: 600px;
+        height: 600px;
+        border: 15px solid white;
+        opacity: 0.5;
+        filter: blur(5px);
+
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        opacity: 0.1;
+    }
+}
+/* @-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+} */
+.logo-brand-max{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-family: Bazar;
+    font-size: 6rem;
+    color: black;
+    z-index: 90;
+    animation: blurPulsation 5s infinite;
+}
+.miniFancyNav{
+    display: none;
+}
+@media(max-width: 768px){
+    .miniFancyNav{
+        display: initial;
+    }
+    body{
+        background: black;
+    }
+    .logo-brand-max{
+        font-size: 2rem;
+        left: 60%;
+        top: 45%;
+    }
+    .circleBorder{
+        display: none;
+    }
+    .circleFull{
+        position: fixed;
+        width: 250px;
+        height: 250px;
+        left: 60%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background: white;
+        /* background: linear-gradient(226deg, #692978, #472978, #2b2978, #294a78, #2b2978, #5f2978, #2d1e34, #050505, #050505);
+    background-size: 1800% 1800%;
+
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite; */
+        border-radius: 50%;
+        filter: blur(10px)
+    }
+    .maxPlayer{
+        display: none;
+    }
+    canvas{
+        width: 100% !important;
+        height: 100% !important; 
+    }
+    .songInfoMini{
+        position: fixed;
+        left: 60%;
+        top: 54%;
+        transform: translate(-50%,-50%);
+        color: black;
+        text-align: center;
+        width: 250px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .songInfoMini .trackName{
+        display: inline;
+    }
+    .songInfoMini .artistName{
+        display: inline;
+    }
+   
+
+}
+@media (max-height: 768px){
+    .miniFancyNav .playMiniBtn{
+        position: absolute;
+        top: 100px;
+        font-size: 25px;
+        left: 15px;
+        transition: all 0.3s;
+
+    }
+    .miniFancyNav .pausedMiniBtn{
+        position: absolute;
+        top: 200px;
+        font-size: 25px;
+        left: 15px;
+        transition: all 0.3s;
+
+    }
+    .miniFancyNav .nextMiniBtn{
+        position: absolute;
+        top: 300px;
+        font-size: 25px;
+        left: 15px;
+        transition: all 0.3s;
+    }
+    .miniFancyNav .mutedMiniBtn{
+        position: absolute;
+        top: 400px;
+        font-size: 25px;
+        left: 21px;
+        transition: all 0.3s;
+    }
+}
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+.logo-brand-max .songInfo{
+        position: fixed;
+        left: 55%;
+        top: 70%;
+        transform: translate(-50%,300%);
+        color: black;
+        text-align: center;
+        width: 300px;
+        font-weight: 700;
+        font-size: 12.3px;
+        letter-spacing: 1px;
+        font-family: Arial, Helvetica, sans-serif;
+}
+.logo-brand-max .trackName{
+    color: black;
+    display: inline;
+}
+.logo-brand-max .artistName{
+    color: black;
+    display: inline;
+}
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  z-index: 0;
+}
+
+
+.glitch {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  width: 400px;
+  margin: 0 auto;
+}
+
+@keyframes noise-anim {
+  0% {
+    clip: rect(57px, 9999px, 1px, 0);
+  }
+  5% {
+    clip: rect(70px, 9999px, 53px, 0);
+  }
+  10% {
+    clip: rect(20px, 9999px, 100px, 0);
+  }
+  15% {
+    clip: rect(31px, 9999px, 99px, 0);
+  }
+  20% {
+    clip: rect(71px, 9999px, 58px, 0);
+  }
+  25% {
+    clip: rect(93px, 9999px, 84px, 0);
+  }
+  30% {
+    clip: rect(52px, 9999px, 94px, 0);
+  }
+  35% {
+    clip: rect(77px, 9999px, 58px, 0);
+  }
+  40% {
+    clip: rect(61px, 9999px, 3px, 0);
+  }
+  45% {
+    clip: rect(4px, 9999px, 54px, 0);
+  }
+  50% {
+    clip: rect(37px, 9999px, 53px, 0);
+  }
+  55% {
+    clip: rect(29px, 9999px, 48px, 0);
+  }
+  60% {
+    clip: rect(20px, 9999px, 47px, 0);
+  }
+  65% {
+    clip: rect(36px, 9999px, 40px, 0);
+  }
+  70% {
+    clip: rect(65px, 9999px, 70px, 0);
+  }
+  75% {
+    clip: rect(83px, 9999px, 69px, 0);
+  }
+  80% {
+    clip: rect(6px, 9999px, 36px, 0);
+  }
+  85% {
+    clip: rect(77px, 9999px, 56px, 0);
+  }
+  90% {
+    clip: rect(14px, 9999px, 10px, 0);
+  }
+  95% {
+    clip: rect(88px, 9999px, 82px, 0);
+  }
+  100% {
+    clip: rect(83px, 9999px, 6px, 0);
+  }
+}
+.glitch:after {
+  content: attr(data-text);
+  position: fixed;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim-2 {
+  0% {
+    clip: rect(40px, 9999px, 51px, 0);
+  }
+  5% {
+    clip: rect(80px, 9999px, 33px, 0);
+  }
+  10% {
+    clip: rect(90px, 9999px, 14px, 0);
+  }
+  15% {
+    clip: rect(33px, 9999px, 17px, 0);
+  }
+  20% {
+    clip: rect(81px, 9999px, 12px, 0);
+  }
+  25% {
+    clip: rect(87px, 9999px, 7px, 0);
+  }
+  30% {
+    clip: rect(53px, 9999px, 20px, 0);
+  }
+  35% {
+    clip: rect(28px, 9999px, 38px, 0);
+  }
+  40% {
+    clip: rect(68px, 9999px, 67px, 0);
+  }
+  45% {
+    clip: rect(88px, 9999px, 39px, 0);
+  }
+  50% {
+    clip: rect(74px, 9999px, 5px, 0);
+  }
+  55% {
+    clip: rect(44px, 9999px, 34px, 0);
+  }
+  60% {
+    clip: rect(12px, 9999px, 46px, 0);
+  }
+  65% {
+    clip: rect(74px, 9999px, 58px, 0);
+  }
+  70% {
+    clip: rect(80px, 9999px, 11px, 0);
+  }
+  75% {
+    clip: rect(98px, 9999px, 20px, 0);
+  }
+  80% {
+    clip: rect(87px, 9999px, 76px, 0);
+  }
+  85% {
+    clip: rect(64px, 9999px, 94px, 0);
+  }
+  90% {
+    clip: rect(52px, 9999px, 27px, 0);
+  }
+  95% {
+    clip: rect(3px, 9999px, 54px, 0);
+  }
+  100% {
+    clip: rect(54px, 9999px, 66px, 0);
+  }
+}
+.glitch:before {
+  content: attr(data-text);
+  position: fixed;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+}

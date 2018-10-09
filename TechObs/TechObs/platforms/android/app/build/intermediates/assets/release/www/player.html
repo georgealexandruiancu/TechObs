@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TECHOBS</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="particles-js"></div>
+    <div class="fancyNav" id="fancyNav">
+        <div class="toggleButton">
+        <div id="box" style="position: absolute; top: 0px; left: 0px; background-color: black;">
+            <ul class="open">
+                <li class="linesBtn"></li>
+                <li class="linesBtn"></li>
+                <li class="linesBtn"></li>
+            </ul>
+        </div>
+        </div>
+        <div class="logo-brand">TECHOBS</div>
+        <div class="tracks-holder" id="tracks-holder">
+            
+        </div>
+    </div>
+    <div class="miniFancyNav">
+        <div class="playMiniBtn playBtn" id="playMiniBtn"><i class="fas fa-play-circle"></i></div>
+        <div class="pausedMiniBtn" id="pausedMiniBtn"><i class="fas fa-pause-circle"></i></div>
+        <div class="nextMiniBtn" id="nextMiniBtn" data-value="yasdee" onclick="nextSong()"><i class="fas fa-chevron-circle-right"></i></div>
+        <div class="mutedMiniBtn" id="mutedMiniBtn"><i class="fas fa-volume-off"></i></div>
+    </div>
+    <audio id="techMusic" controls="controls" onended="nextSong()">
+        <source id="techSource" src=""/>
+        Your browser does not support the audio
+        element.
+    </audio>
+    <div class="circleFull"></div>
+    <div class="circleBorder"></div>
+    <div class="logo-brand-max">
+        TECHOBS
+        <div class="songInfo">
+            <div class="trackName" id="trackNameView"></div>
+            <div class="artistName" id="artistNameView">- </div>
+        </div>
+    </div>
+
+    <div class="maxPlayer">
+        <div class="audio-player">
+            <div class="content">
+                <div class="actions">
+                    <div class="playMaxBtn" id="playMaxBtn"><i class="fas fa-play-circle"></i></div>
+                    <div class="pausedMaxBtn" id="pausedMaxBtn"><i class="fas fa-pause-circle"></i></div>
+                    <div class="nextMaxBtn" id="nextMaxBtn"><i class="fas fa-chevron-circle-right"></i></div>
+                    <div class="mutedMaxBtn" id="mutedMaxBtn"><i class="fas fa-volume-off"></i></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/particles.js"></script>   
+    <script src="js/initParticles.js"></script>
+
+</body>
+</html>
