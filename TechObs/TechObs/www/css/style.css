@@ -225,6 +225,13 @@ li.actives .playBtn{
     left: 15px;
     transition: all 0.2s;
 }
+.miniFancyNav .repeatMiniBtn{
+    position: absolute;
+    top: 625px;
+    font-size: 25px;
+    left: 15px;
+    transition: all 0.2s;
+}
 .playMiniBtn:hover{
     color: #e73cd3;
     cursor: pointer;

@@ -27,11 +27,12 @@
         </div>
     </div>
     <div class="miniFancyNav">
-        <div class="playMiniBtn playBtn" id="playMiniBtn"><i class="fas fa-play-circle"></i></div>
+        <div class="playMiniBtn playBtn" id="playMiniBtn" onclick="toggleAll()"><i class="fas fa-play-circle"></i></div>
         <div class="pausedMiniBtn" id="pausedMiniBtn"><i class="fas fa-pause-circle"></i></div>
         <div class="nextMiniBtn" id="nextMiniBtn" data-value="yasdee" onclick="nextSong()"><i class="fas fa-chevron-circle-right"></i></div>
         <div class="mutedMiniBtn" id="mutedMiniBtn"><i class="fas fa-volume-off"></i></div>
-        <div class="shuffleMiniBtn" id="shuffleMiniBtn" onclick="changeState()"><i class="fas fa-random"></i></div>    
+        <div class="shuffleMiniBtn" id="shuffleMiniBtn" onclick="changeStateShuffle()"><i class="fas fa-random"></i></div>    
+        <div class="repeatMiniBtn" id="repeatMiniBtn" onclick="changeStateRepeat()"><i class="fas fa-redo-alt"></i></div>        
     </div>
     <audio id="techMusic" controls="controls">
         <source id="techSource" src=""/>

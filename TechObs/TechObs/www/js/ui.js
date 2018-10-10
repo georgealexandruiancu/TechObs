@@ -28,7 +28,7 @@ $(document).ready(function () {
     var nextMiniBtn = document.querySelector("#nextMiniBtn");
     var mutedMiniBtn = document.querySelector("#mutedMiniBtn");
     var shuffleMiniBtn = document.querySelector("#shuffleMiniBtn");
-    
+    var repeatMiniBtn = document.querySelector("#repeatMiniBtn");
     var x = document.getElementById("techMusic")
     playMaxBtn.addEventListener("click", function(){
         x.play();
@@ -91,5 +91,12 @@ $(document).ready(function () {
         pausedMiniBtn.style.color = "white";
         shuffleMiniBtn.style.color = "#e73cd3";
     });  
+    repeatMiniBtn.addEventListener("click", function(){
+        playMiniBtn.style.color = "white";
+        mutedMiniBtn.style.color = "white";
+        pausedMiniBtn.style.color = "white";
+        shuffleMiniBtn.style.color = "white";
+        this.style.color = "#e73cd3";
+    });
 });
 

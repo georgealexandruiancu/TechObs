@@ -4,6 +4,9 @@ var lis;
 var audio = document.getElementById('techMusic');
 var source = document.getElementById('techSource');
 var shuffleActive = 0;
+var repeatActive = 0;
+var currentParam;
+var currentIndex;
 fetch('https://9735dff3.ngrok.io')
     .then(res => res.json())
     .then(data => obj = _.values(data))
@@ -59,13 +62,19 @@ $(document).ready(function(){
     console.log(nextSong);
     
 });
-
+function toggleAll(){
+    shuffleActive = 0;
+    repeatActive = 0;
+    console.log("all states are reseted");
+}
 function playMusic(param, index) {
     source.src = param;
     document.getElementById("nextMiniBtn").setAttribute("data-value", index + 1);
     console.log("Next search: " + document.getElementById("nextMiniBtn").getAttribute("data-value"));
     audio.load(); //call this to just preload the audio without playing
     audio.play(); //call this to play the song right away
+    currentIndex = index;
+    currentParam = param;
     for (let i = 0; i < obj.length; i++) {
         if (i == index) {
             $("#trackNameView").html(obj[i].song);
@@ -74,6 +83,7 @@ function playMusic(param, index) {
     }
     removeAllClasses();
     changeColor();
+    console.log(currentIndex + " " + currentParam);
 }
 function nextSong(){
     var nextIndexString = document.getElementById("nextMiniBtn").getAttribute("data-value");
@@ -92,6 +102,7 @@ function nextSong(){
     removeAllClasses();
     changeColor();
     shuffleActive = 0;
+    repeatActive = 0;
     console.log("shuffle active: " + shuffleActive);
 }
 function removeAllClasses(){
@@ -109,9 +120,18 @@ function changeColor(){
        }
    }
 }
-function changeState(){
+function changeStateShuffle(){
     shuffleActive = 1;
+    repeatActive = 0;
     console.log("shuffle active: " + shuffleActive);
+}
+function changeStateRepeat() {
+    repeatActive = 1;
+    shuffleActive = 0;
+    console.log("repeat active: " + repeatActive);
+}
+function repeatMusic(index, param){
+    playMusic(param, index);
 }
 function shuffleMusic(){
     index = _.random(0, obj.length);
@@ -122,27 +142,32 @@ function shuffleMusic(){
 audio.onended = function(){
     if(shuffleActive == 1){
         shuffleMusic();
+    }else if(repeatActive == 1){
+        repeatMusic(currentIndex, currentParam);
     }else{
         nextSong();
     }
 }
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
 
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
 
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+// function shuffle(array) {
+//     var currentIndex = array.length, temporaryValue, randomIndex;
 
-    return array;
-}
-objShu = shuffle(obj);
-console.log(objShu);
+//     // While there remain elements to shuffle...
+//     while (0 !== currentIndex) {
+
+//         // Pick a remaining element...
+//         randomIndex = Math.floor(Math.random() * currentIndex);
+//         currentIndex -= 1;
+
+//         // And swap it with the current element.
+//         temporaryValue = array[currentIndex];
+//         array[currentIndex] = array[randomIndex];
+//         array[randomIndex] = temporaryValue;
+//     }
+
+//     return array;
+// }
+// objShu = shuffle(obj);
+// console.log(objShu);
